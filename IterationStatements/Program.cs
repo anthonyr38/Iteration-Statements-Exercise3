@@ -27,7 +27,129 @@
         //Call the methods to test them in the Main method below
         static void Main(string[] args)
         {
-            
+            PrintAllNums();
+            Console.WriteLine();
+
+            PrintAllThrees();
+            Console.WriteLine();
+
+            //IsItEqual(54, 54);
+            Console.WriteLine(IsItEqual(54, 54));
+            Console.WriteLine();
+
+            OddsOrEvens(45);
+            Console.WriteLine();
+
+            IsPosOrNeg(-1);
+            Console.WriteLine();
+
+            CanTheyVote();
+            Console.WriteLine();
+
+            IsRangeTen(8);
+            Console.WriteLine();
+
+            MultTable12(6);
+            Console.WriteLine();
+
+
         }
+
+        public static void PrintAllNums()
+        {
+            for (int i = 1000; i >= -1000; i--)
+            {
+                Console.WriteLine(i);
+            }    
+        }
+
+        public static void PrintAllThrees()
+        {
+            for (int triple = 3; triple <= 999; triple += 3)
+            {
+                Console.WriteLine(triple);
+            }
+        }
+
+        public static bool IsItEqual(int equal1, int equal2)
+        {
+            var isIt = (equal1 == equal2) ? true : false;
+            return isIt;
+        }
+
+        public static void OddsOrEvens(int oddEvenInt)
+        {
+            if (oddEvenInt % 2 == 0)
+            {
+                
+                Console.WriteLine($"{oddEvenInt} is an even number.");
+                
+            }
+
+            else
+            {
+                Console.WriteLine($"{oddEvenInt} is an odd number.");
+            }
+        }
+
+        public static void IsPosOrNeg(int posNeg)
+        {
+            if (posNeg > 0)
+            {
+                Console.WriteLine($"{posNeg} is a positive number.");
+            }
+            else if (posNeg < 0)
+            {
+                Console.WriteLine($"{posNeg} is a negative number.");
+            }
+            else
+            {
+                Console.WriteLine($"{posNeg} is neither positive or negative.");
+            }
+        }
+        public static bool CanTheyVote()
+        {
+            Console.WriteLine("Please enter your age.");
+            var voterAge = int.TryParse(Console.ReadLine(), out int ageVoter);
+
+            while(voterAge == false)
+            {
+                Console.WriteLine("Please enter a valid age.");
+                voterAge = int.TryParse(Console.ReadLine(), out ageVoter);
+            }
+
+            if (ageVoter >= 18)
+            {
+                Console.WriteLine("Here is your ballot. Please proceeed to an open booth.");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("You are not old enough to vote yet.");
+                return false;
+            }
+        }
+        public static bool IsRangeTen(int numTen)
+        {
+            if(numTen <= 10 && numTen >= -10)
+            {
+                Console.WriteLine($"{numTen} is within the ten range.");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine($"{numTen} is outside of the ten range.");
+                return false;
+            }
+        }
+
+        public static void MultTable12(int prod12)
+        {
+            for(int p=1; p <=12; p++) 
+            {
+                Console.WriteLine($"{p} x {prod12} = {p * prod12}");
+            }
+        }
+
     }
 }
